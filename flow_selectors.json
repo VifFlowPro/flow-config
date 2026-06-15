@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "_note": "Playwright selectors for Google Flow (React + Radix UI + Slate editor). Stable anchors: role, id-substring, button text, material-icon ligatures. Confirmed against Chrome extensions Auto Pro (utils/domHelpers.js) and VEO Automation/kylenguyen (remoteConfig selector map). The config menu button is anchored by the model/mode TEXT, not the crop icon; aspect/mode/count tabs by id-substring trigger-*. Result/download verified on live DOM.",
   "create_project_button": "button:has-text(\"Создать проект\")",
   "_create_project_candidates_note": "RU primary; EN + icon variants are PROVISIONAL — confirm on a live English Google account DOM. Tried in order; the composer-present short-circuit fires first inside a project.",
