@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "image_daily_limit": null,
+  "models": {
+    "nano_banana": { "content_type": "image", "credits": 0 },
+    "veo3_fast": { "content_type": "video", "credits": 20 },
+    "veo3_quality": { "content_type": "video", "credits": 100 },
+    "omni_flash": {
+      "content_type": "video",
+      "credits_by_duration": { "4": 7, "6": 10, "8": 12, "10": 15 }
+    }
+  }
+}
