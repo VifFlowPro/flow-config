@@ -1,1 +1,93 @@
-
+{
+  "version": 3,
+  "_note": "Playwright selectors for Google Flow (React + Radix UI + Slate editor). Stable anchors: role, id-substring, button text, material-icon ligatures. Confirmed against Chrome extensions Auto Pro (utils/domHelpers.js) and VEO Automation/kylenguyen (remoteConfig selector map). The config menu button is anchored by the model/mode TEXT, not the crop icon; aspect/mode/count tabs by id-substring trigger-*. Result/download verified on live DOM.",
+  "create_project_button": "button:has-text(\"Создать проект\")",
+  "_create_project_candidates_note": "RU primary; EN + icon variants are PROVISIONAL — confirm on a live English Google account DOM. Tried in order; the composer-present short-circuit fires first inside a project.",
+  "create_project_button_candidates": [
+    "button:has-text(\"Создать проект\")",
+    "button:has-text(\"Новый проект\")",
+    "button:has-text(\"New project\")",
+    "button:has-text(\"Create new project\")",
+    "button:has-text(\"Create a new project\")",
+    "button:has(i:has-text(\"add\"))"
+  ],
+  "config_button": "button[aria-haspopup=\"menu\"]:has-text(\"Видео\")",
+  "config_button_candidates": [
+    "button[aria-haspopup=\"menu\"]:has-text(\"Veo\")",
+    "button[aria-haspopup=\"menu\"]:has-text(\"Nano Banana\")",
+    "button[aria-haspopup=\"menu\"]:has-text(\"Imagen\")",
+    "button[aria-haspopup=\"menu\"]:has-text(\"Видео\")",
+    "button[aria-haspopup=\"menu\"]:has-text(\"Изображение\")",
+    "button[aria-haspopup=\"menu\"]:has(i:has-text(\"crop\"))"
+  ],
+  "config_button_active": "button[aria-haspopup=\"menu\"][data-state=\"open\"]",
+  "prompt_input": "div[role=\"textbox\"][data-slate-editor=\"true\"]",
+  "submit_button": "button:has(i:has-text(\"arrow_forward\"))",
+  "stop_button": "button:has(i:has-text(\"stop\"))",
+  "mode_tab_tpl": "button[role=\"tab\"][id*=\"trigger-{value}\"]",
+  "aspect_tab_tpl": "button[role=\"tab\"]:has-text(\"{value}\")",
+  "aspect_id_tab_tpl": "button[role=\"tab\"][id*=\"trigger-{value}\"]",
+  "aspect_id_map": {
+    "16:9": "LANDSCAPE",
+    "9:16": "PORTRAIT",
+    "1:1": "SQUARE",
+    "4:3": "LANDSCAPE_4_3",
+    "3:4": "PORTRAIT_3_4"
+  },
+  "count_tab_tpl": "button[role=\"tab\"][id*=\"trigger-{value}\"]",
+  "model_trigger": "div[role=\"menu\"] button[aria-haspopup=\"menu\"]",
+  "model_option_tpl": "div[role=\"menuitem\"]:has-text(\"{value}\")",
+  "download_button": "button:has(i:has-text(\"download\"))",
+  "more_vert_button": "button:has(i:has-text(\"more_vert\")), button:has(i:has-text(\"more_horiz\"))",
+  "quality_option_tpl": "div[role=\"menuitem\"]:has-text(\"{value}\")",
+  "file_input": "input[type=\"file\"]",
+  "duration_tab_tpl": "button[role=\"tab\"]:has-text(\"{value}\")",
+  "download_menu_item": "div[role=\"menuitem\"]:has-text(\"Скачать\")",
+  "download_menu_item_candidates": [
+    "div[role=\"menuitem\"]:has-text(\"Скачать\")",
+    "div[role=\"menuitem\"]:has-text(\"Download\")",
+    "button:has-text(\"Скачать\")",
+    "button:has-text(\"Download\")"
+  ],
+  "download_quality_tpl": "div[role=\"menuitem\"]:has-text(\"{value}\")",
+  "download_quality_candidates_tpl": [
+    "div[role=\"menuitem\"]:has-text(\"{value}\")",
+    "div[role=\"menuitemradio\"]:has-text(\"{value}\")",
+    "button:has-text(\"{value}\")"
+  ],
+  "_download_note": "PROVISIONAL — the resolution submenu (720p/1080p) appears on hover over the «Скачать» item inside the result tile's more_vert menu. Confirm option text/role on live DOM; 720p uses the direct video src fetch, 1080p drives this menu (Flow upscales → longer wait).",
+  "_error_keywords_note": "Case-insensitive substring match against a result-tile message (≤220 chars). Use STEMS, not exact forms — Flow varies tense/wording (e.g. «нарушать» vs «нарушает» → match «наруша»). The famous-people refusal reads: «Этот запрос может нарушать наши правила в отношении генерации изображений известных людей. Попробуйте ввести другой запрос или отправьте отзыв.»",
+  "error_keywords": [
+    "might violate",
+    "may violate",
+    "violate our",
+    "violate our policies",
+    "try a different prompt",
+    "send feedback",
+    "generation failed",
+    "couldn't generate",
+    "could not generate",
+    "was blocked",
+    "well-known people",
+    "public figures",
+    "real people",
+    "не удалось",
+    "наруша",
+    "наши правила",
+    "известных людей",
+    "ошибка генерации",
+    "попробуйте другой",
+    "попробуйте ввести",
+    "отправьте отзыв",
+    "rejected"
+  ],
+  "model_labels": {
+    "veo3_fast": "Veo 3.1 - Fast",
+    "veo3_quality": "Veo 3.1 - Quality",
+    "omni_flash": "Omni Flash",
+    "nano_banana": "Nano Banana 2",
+    "nano_banana_2": "Nano Banana 2",
+    "nano_banana_pro": "Nano Banana Pro",
+    "imagen_4": "Imagen 4"
+  }
+}
